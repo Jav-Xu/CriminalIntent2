@@ -1,7 +1,6 @@
 package com.javxu.criminalintent2;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +70,10 @@ public class CrimeListFragment extends Fragment {
 
         private List<Crime> mCrimes;
 
+        public void setCrimes(List<Crime> crimes) {
+            mCrimes = crimes;
+        }
+
         public CrimeAdapter(List<Crime> crimes) {
             mCrimes = crimes;
         }
@@ -92,10 +95,6 @@ public class CrimeListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mCrimes.size();
-        }
-
-        public void setCrimes(List<Crime> crimes) {
-            mCrimes = crimes;
         }
 
     }
@@ -151,7 +150,7 @@ public class CrimeListFragment extends Fragment {
         super.onResume();
         updateUI();
     }
-;
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -167,7 +166,7 @@ public class CrimeListFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_crime_list, menu);
+        inflater.inflate(R.menu.fragment_crime_list, menu); //L128
 
         MenuItem subtitleItem = menu.findItem(R.id.menu_item_show_subtitle);
         if (mSubtitleVisible) {

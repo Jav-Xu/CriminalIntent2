@@ -42,7 +42,7 @@ public class CrimePagerActivity extends AppCompatActivity implements CrimeFragme
 
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
-            public Fragment getItem(int position) {
+            public Fragment getItem(int position) { //getItem()就返回已经配置过的Fragment来完成显示任务
                 Crime crime = mCrimes.get(position);
                 return CrimeFragment.newInstance(crime.getId());
             }
